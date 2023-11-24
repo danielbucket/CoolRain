@@ -6,7 +6,6 @@ const buttonRoute = require('./controllers/buttonRoute');
 
 router.use((req,res,next) => {
 	console.log("TIME: ", Date.now());
-
 	next();
 });
 

@@ -1,12 +1,17 @@
-import "./style.css";
+import "./main.style.css";
 import Header from './components/Header/Header.js';
-import serverButton from './components/serverbutton.js';
+import Body from './components/Body/Body.js';
 
-document.querySelector("#app").innerHTML = `
-  <div id="app-container"></div>
-`;
+function App() {
+  const app = document.querySelector('#app');
+    app.innerHTML = `
+      <div id="app-container">
+        ${Header()}
+        ${Body()}
+      </div>
+    `;
 
-const app = document.querySelector('#app-container');
+  return app;
+};
 
-Header(app);
-serverButton(app);
+export default App();

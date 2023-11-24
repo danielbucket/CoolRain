@@ -1,11 +1,11 @@
 import './header.style.css';
 
-function Header(element) {
-	const container = document.createElement('div');
-		container.classList = "header-container";
-		container.innerHTML = "Header";
+function Header() {
+	const text = "Header Component";
 
-	element.appendChild(container);
+	return (
+		`<div class="header-container">${ text }<div>`
+	);
 };
 
 export default Header;
