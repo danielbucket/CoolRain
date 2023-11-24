@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-router.use((requ,res,next) => {
+const buttonRoute = require('./controllers/buttonRoute');
+
+
+router.use((req,res,next) => {
 	console.log("TIME: ", Date.now());
+
 	next();
 });
 
-router.get('/', (req,res) => {
-	console.log("Server at: \'/\'");
-});
+router.get('/button', buttonRoute.buttonClicked);
 
-router.get('/about', (req,res,next) => {
-	console.log('Server at: \'/about\'');
-});
+module.exports = router;
 

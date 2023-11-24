@@ -1,17 +1,20 @@
 import './serverbutton.style.css';
+const url = "api/v1/button";
+
+function getButtonResp(url,element) {
+	fetch(url)
+		.then(res => res.json())
+		.then(data => {
+			console.log('data: ', data);
+		})
+		.catch(err => console.error(`ERROR AT getButtonResp(): ${err}`));
+};
 
 const serverButton = (element) => {
 	const button = document.createElement('button');
 		button.classList.add('server-button');
-		button.onclick = () => {
-			fetch('/hello')
-				.then(res => res.json())
-				.then(res => {
-					console.log('res: ', res)
-					// element.innerText = res;
-				})
-			.catch(err => console.log("ERROR: ", err))
-		};
+		button.onclick = () => getButtonResp(url,element);
+
 	element.appendChild(button);
 };
 
