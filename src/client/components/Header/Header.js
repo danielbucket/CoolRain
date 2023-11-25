@@ -1,11 +1,13 @@
 import './header.style.css';
+import LoginPortal from '../LoginPortal/loginPortal.js';
+const loginPortal = new LoginPortal;
 
-function Header() {
-	const text = "Header Component";
+export default function Header(handleAppState, user) {
+	
+	const headerContainer = document.createElement('div');
+		headerContainer.classList.add('header-container');
+		headerContainer.appendChild(loginPortal.portal(handleAppState));
 
-	return (
-		`<div class="header-container">${ text }<div>`
-	);
+
+	return headerContainer;
 };
-
-export default Header;
