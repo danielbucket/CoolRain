@@ -18,8 +18,9 @@ class CoolRain {
   };
 
   handleAppState(e) {
+    console.log("handelAppState: ", e)
     const state = this[e.target.id];
-    console.log("E: ", e)
+
   };
 
   App() {

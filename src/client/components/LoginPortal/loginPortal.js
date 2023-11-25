@@ -1,49 +1,74 @@
+import './loginPortal.style.css';
+
 export default class LoginPortal {
-	contructor() {
+	constructor() {
 		this.user = {
-			name: "username",
+			name: "user",
 			email: "email",
 			password: "password",
 		};
 
-		this.handleState = this.handleState.bind(this);
 		this.portal = this.portal.bind(this);
-	};
+		this.handleState = this.handleState.bind(this);
+		this.fetchUserCred = this.fetchUserCred.bind(this);
+	}
 
 	handleState(e) {
-		const state = this;
-		console.log(state)
-	};
+		const { target } = e;
+		const state = this.user;
+		const newState = Object.assign(state, { [target.id]: target.value });
 
-	portal() {
-		const { name, email, password, handleState } = this;
+		this.user = newState;
+	}
 
-		const loginPortal = document.createElement('div');
-			loginPortal.classList.add('login-portal-container');
+	fetchUserCred() {
+		const { name, email, password } = this.user;
+		
+		fetch('api/v1/login')
+			.then(res => res.json())
+			.then(data => console.log('Data: ', data))
+			.catch(err => console.error("ERROR at fetchUserCred(): ", err))
+	}
 
-		const username = document.createElement('div');
-			username.classList.add('username-input');
-			username.id="username";
-			username.value = name;
-			username.addEventListener('keyup', e => handleState(e));
+	portal(handleAppState) {
+		const { name, email, password } = this.user;
 
-		const useremail = document.createElement('input');
-			useremail.classList.add('email-input');
-			useremail.id = 'email';
-			useremail.value = email;
-			useremail.addEventListener('keyup', e => handleState(e));
+		const nameInput = document.createElement('input');
+			nameInput.classList.add('name-input');
+			nameInput.id = "name";
+			nameInput.value = name;
+			nameInput.addEventListener('focus', () => nameInput.value="");
+			nameInput.addEventListener('keyup', e => this.handleState(e));
 
-		const userpassword = document.createElement('input');
-			userpassword.classList.add('password-input');
-			userpassword.id="password";
-			userpassword.value = password;
-			userpassword.addEventListener('keyup', e => handleState(e));
+		const emailInput = document.createElement('input');
+			emailInput.classList.add('email-input');
+			emailInput.id = "email";
+			emailInput.value = email;
+			emailInput.addEventListener('focus', () => emailInput.value="");
+			emailInput.addEventListener('keyup', e => this.handleState(e));
 
+		const passwordInput = document.createElement('input');
+			passwordInput.classList.add('password-input');
+			passwordInput.id = "password";
+			passwordInput.value = password;
+			passwordInput.addEventListener('focus', () => passwordInput.value="");
+			passwordInput.addEventListener('keyup', e => this.handleState(e));
 
-		loginPortal.appendChild(username);
-		loginPortal.appendChild(useremail);
-		loginPortal.appendChild(userpassword);
+		const submitBtn = document.createElement('button');
+			submitBtn.classList.add('submit-btn');
+			submitBtn.innerText = "Submit"
+			submitBtn.addEventListener('click', () => {
+				this.fetchUserCred()
+			})
 
-		return loginPortal;
+		const portalContainer = document.createElement('div');
+			portalContainer.classList.add('portal-container');
+			
+		portalContainer.appendChild(nameInput);
+		portalContainer.appendChild(emailInput);
+		portalContainer.appendChild(passwordInput);
+		portalContainer.appendChild(submitBtn);
+
+		return portalContainer;
 	};
 };
