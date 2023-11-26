@@ -2,10 +2,12 @@ import './loginPortal.style.css';
 
 export default class LoginPortal {
 	constructor() {
-		this.user = {
-			name: "user",
-			email: "email",
-			password: "password",
+		this.state = {
+			user: {
+				name: "user",
+				email: "email",
+				password: "password",
+			}
 		};
 
 		this.portal = this.portal.bind(this);
@@ -16,23 +18,22 @@ export default class LoginPortal {
 
 	onfocusEvent(e) {
 		const { id, value } = e.target;
-		const newVal = this.user[id];
+		const newVal = this.state.user[id];
 		if (value == id) { e.target.value = "" }
 		else { e.target.value = newVal };
 	};
 
 	onfocusOutEvent(e) {
 		const { id, value } = e.target;
-		const stateVal = this.user[id];
+		const stateVal = this.state.user[id];
 		if (value == "") { e.target.value = id }
 		else if (value != id) { e.target.value = stateVal };
 	};
 
 	handleState(e) {
 		const { target } = e;
-		const state = this.user;
+		const state = this.state.user;
 		const newState = Object.assign(state, { [target.id]: target.value });
-
 		this.user = newState;
 	};
 
@@ -50,7 +51,7 @@ export default class LoginPortal {
 	};
 
 	portal(handleAppState) {
-		const { name, email, password } = this.user;
+		const { name, email, password } = this.state.user;
 
 		const nameInput = document.createElement('input');
 			nameInput.classList.add('name-input');
