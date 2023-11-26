@@ -1,4 +1,5 @@
 import './loginPortal.style.css';
+import { loginUser } from '../../model/FetchCalls.js';
 
 export default class LoginPortal {
 	constructor() {
@@ -12,8 +13,9 @@ export default class LoginPortal {
 
 		this.portal = this.portal.bind(this);
 		this.handleState = this.handleState.bind(this);
-		this.validateUserLogin = this.validateUserLogin.bind(this);
+		this.submitLogin = this.submitLogin.bind(this);
 		this.onfocusEvent = this.onfocusEvent.bind(this);
+		this.loginUser = loginUser.bind(this);
 	};
 
 	onfocusEvent(e) {
@@ -37,17 +39,14 @@ export default class LoginPortal {
 		this.user = newState;
 	};
 
-	validateUserLogin() {
+	submitLogin() {
 		const newState = { name:"name", email:"email", password:"password" };
-		const userData = this.user;
+		const userData = this.state.user;
 
-		fetch('api/v1/login')
-			.then(res => res.json())
-			.then(data => console.log('Data: ', data))
-			.catch(err => console.error("ERROR at validateUserLogin(): ", err))
+		this.loginUser(this,userData);
 			
-		Object.assign(this.user, newState);
-		Object.keys(this.user).map(i => document.getElementById(i).value = i);
+		Object.assign(this.state.user, newState);
+		Object.keys(this.state.user).map(i => document.getElementById(i).value = i);
 	};
 
 	portal(handleAppState) {
@@ -80,7 +79,7 @@ export default class LoginPortal {
 		const submitBtn = document.createElement('button');
 			submitBtn.classList.add('submit-btn');
 			submitBtn.innerText = "Submit"
-			submitBtn.addEventListener('click', () => this.validateUserLogin());
+			submitBtn.addEventListener('click', () => this.submitLogin());
 
 		const portalContainer = document.createElement('div');
 			portalContainer.classList.add('portal-container');
