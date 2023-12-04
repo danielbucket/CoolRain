@@ -1,0 +1,13 @@
+.index-position {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100vh;
+	width: calc(100vw - 40rem);
+	
+}
+
+.index-container {
+	height: 100vh;
+	background-color: cornflowerblue;
+}

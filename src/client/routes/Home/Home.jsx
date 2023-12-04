@@ -1,8 +1,15 @@
+import './home.style.css';
+import { Outlet } from 'react-router-dom';
+
 export default function Home() {
 
 	return (
-		<div>
-			<h1>Home</h1>
-		</div>
+		<>
+			<div className="home-container">
+				<p>Cool Rain CraftMakers</p>
+				<p>Making Shit for Fun</p>
+			</div>
+			<Outlet />
+		</>
 	);
-}
+};
