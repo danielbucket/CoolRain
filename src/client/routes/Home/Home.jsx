@@ -5,9 +5,9 @@ export default function Home() {
 
 	return (
 		<>
-			<div className="home-container">
+			<div className="home-container header-style">
 				<p>Cool Rain CraftMakers</p>
-				<p>Making Shit for Fun</p>
+				<p>(making bullshit just for you!)</p>
 			</div>
 			<Outlet />
 		</>

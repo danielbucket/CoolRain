@@ -1,13 +1,20 @@
-.index-position {
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 100vh;
-	width: calc(100vw - 40rem);
-	
-}
-
 .index-container {
 	height: 100vh;
-	background-color: cornflowerblue;
+	background-image: url('../../assets/images/woodpiece_wallpaper_1080x2340.jpg');
+	background-size: contain;
+}
+
+.index-container div {
+	background-color: #cbb98769;
+	height: 100%;
+}
+
+.index-container p {
+	font-size: 4em;
+}
+
+@media (width > 360px) {
+	.index-container {
+		background-image: url('../../assets/images/woodpiece_wallpaper_1920x1200.jpg');
+	}
 }

@@ -1,18 +1,25 @@
 .home-container {
 	position: absolute;
-	left: 0;
 	top: 0;
-	border-right: .2rem solid var(--ac-green);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	text-align: center;
 
-	width: 40rem;
-	height: 100vh;
-	background-color: var(--ac-sand);
-	font-size: 3rem;
+	border-bottom: .2rem solid var(--yosemite-mud);
+	padding: 2rem 1rem 0 1rem;
+
+	height: var(--home-height);
+	background-color: var(--yosemite-green);
 }
 
 .home-container p {
-	font-family: RobotoFlex;
+	font-family: IMFell-reg;
 	font-size: 3.5rem;
 	font-weight: 600;
-	color: var(--coal-grey);
+	color: var(--yosemite-brown);
+}
+.home-container p:last-of-type {
+	font-size: 2rem;
 }
