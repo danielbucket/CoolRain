@@ -1,17 +1,76 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-/*  color-scheme: light dark;*/
-/*  color: rgba(255, 255, 255, 0.87);*/
-/*  background-color: #242424;*/
-
-/*  font-synthesis: none;*/
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@font-face {
+  font-family: Handjet;
+  src: url('./assets/fonts/Handjet/Handjet-VariableFont_ELGR,ELSH,wght.ttf');
 }
 
+@font-face {
+  font-family: RobotoFlex;
+  src: url('./assets/fonts/Roboto_Flex/RobotoFlex-VariableFont.ttf');
 
+}
+
+@font-face {
+  font-family: IMFell-reg;
+  src: url('./assets/fonts/IM_Fell_Double_Pica/IMFellDoublePica-Regular.ttf');
+}
+
+@font-face {
+  font-family: IMFell-ital;
+  src: url('./assets/fonts/IM_Fell_Double_Pica/IMFellDoublePica-Italic.ttf');
+}
+
+:root {
+/* ArborCraft Colour Palette */
+  --ac-sand:          #F7DE8D;
+  --ac-orange:        #FBB040;
+  --ac-green:         #AAC27E;
+  --ac-green-opaque:  #AAC27E69;
+  --ac-blue:          #9FCFCA;
+  --ac-brown:         #594A42;
+  --coal-grey:        #505050;
+
+/* Yosemite Colour Palette */
+  --yosemite-sand:    #d2a44f;
+  --yosemite-mud:     #825439;
+  --yosemite-green:   #686732;
+  --yosemite-moss:    #574924;
+  --yosemite-brown:   #352418;
+
+  --home-height:      12rem;
+  --index-height:     calc(100vh - var(--home-height));
+}
+
+* {
+  /*
+  Setting the margin property to 0 here applies it to
+  all the elements, but it does not carry the same effect
+  when apllied to the html element.
+  Why not?
+  */
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html, body {
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-position {
+  margin-top: var(--home-height);
+  max-height: var(--index-height);
+}
