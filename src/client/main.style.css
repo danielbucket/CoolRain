@@ -74,3 +74,20 @@ html, body {
   margin-top: var(--home-height);
   max-height: var(--index-height);
 }
+
+.gallery-container {
+  display: flex;
+  flex-flow: wrap;
+
+  width: calc(100vw - 5rem);
+  margin: auto;
+  border: 1px solid red;
+}
+
+.gallery-card {
+  margin: 2rem auto;
+  height: 30rem;
+  width: 25rem;
+  border: 1px solid orange;
+
+}
