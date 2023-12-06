@@ -1,5 +1,5 @@
 import './home.style.css';
-import { Outlet } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 
 export default function Home() {
 
@@ -11,24 +11,39 @@ export default function Home() {
 					<p>Craft Makers</p>
 				</div>
 				<div className="navigation">
-					<div
-						className="nav-btn"
+					<NavLink
+						to="wood_gallery/"
+						className={({ isActive,isPending }) => [
+							isActive ? "active" : "",
+							isPending ? "pending" : "",
+							].join(" nav-btn")
+						}
 						onClick={element => {
 							console.log("Wood Gallery Button")
 						}}
-						>{"{ Wood Gallery }"}</div>
-					<div
-						className="nav-btn"
+						>{"{ Wood }"}</NavLink>
+					<NavLink
+						to="metal_gallery/"
+						className={({ isActive,isPending }) => [
+							isActive ? "active" : "",
+							isPending ? "pending" : "",
+							].join(" nav-btn")
+						}
 						onClick={element => {
 							console.log("Metal Gallery Button")
 						}}
-						>{"{ Metal Gallery }"}</div>
-					<div
-						className="nav-btn"
+						>{"{ Metal }"}</NavLink>
+					<NavLink
+						to="mythta_t/"
+						className={({ isActive,isPending }) => [
+							isActive ? "active" : "",
+							isPending ? "pending" : "",
+							].join(" nav-btn")
+						}
 						onClick={element => {
 							console.log("Mythta T Button")
 						}}
-						>{"{ Mythta T }"}</div>
+						>{"{ Mythta T }"}</NavLink>
 				</div>
 			</div>
 			<Outlet />

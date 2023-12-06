@@ -9,7 +9,9 @@ import './main.style.css';
 import Home from './routes/Home/Home';
 import Index from './routes/Index/Index'
 import ErrorPage from './routes/ErrorPage/ErrorPage';
-import Collection from './routes/Collection/Collection';
+import WoodGallery from './routes/WoodGallery/WoodGallery';
+import MetalGallery from './routes/MetalGallery/MetalGallery';
+import Mythta_T from './routes/Mythta_T/Mythta_T';
 
 const router = createBrowserRouter([
 	{
@@ -22,8 +24,16 @@ const router = createBrowserRouter([
 				children: [
 					{ index: true, element: <Index /> },
 					{
-						path: 'collection/',
-						element: <Collection />,
+						path: 'wood_gallery/',
+						element: <WoodGallery />,
+					},
+					{
+						path: 'metal_gallery/',
+						element: <MetalGallery />,
+					},
+					{
+						path: 'mythta_t/',
+						element: <Mythta_T />,
 					},
 				],
 			},
