@@ -7,8 +7,8 @@ export default function Home() {
 		<>
 			<div className="home-container header-style">
 				<div className="company-name-container">
-					<p>Cool Rain</p>
-					<p>Craft Makers</p>
+					<NavLink to="/">Cool Rain</NavLink>
+					<NavLink to="/">Craft Makers</NavLink>
 				</div>
 				<div className="navigation">
 					<NavLink

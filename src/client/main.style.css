@@ -81,13 +81,14 @@ html, body {
 
   width: calc(100vw - 5rem);
   margin: auto;
-  border: 1px solid red;
 }
 
 .gallery-card {
   margin: 2rem auto;
   height: 30rem;
   width: 25rem;
-  border: 1px solid orange;
+  border: .32rem solid var(--yosemite-sand);
+  border-radius: 1.5rem;
+  padding: .75rem;
 
 }

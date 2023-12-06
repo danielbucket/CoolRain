@@ -11,17 +11,22 @@
 }
 
 .company-name-container {
-	width: 100%;
 	grid-row: 1 / span 2;
+
+	text-decoration: none;
 
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	grid-template-columns: 1fr 1fr 1fr;
-
-	color: var(--yosemite-brown);
 }
 
-.company-name-container p:first-child {
+.company-name-container a {
+	color: var(--yosemite-brown);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.company-name-container a:first-child {
 	grid-column: 1 / span 2;
 	grid-row: 1;
 
@@ -33,7 +38,7 @@
 	padding-top: 1rem;
 }
 
-.company-name-container p:last-child {
+.company-name-container a:last-child {
 	grid-column: 2 / span 2;
 	grid-row: 2;
 	font-size: 3rem;
@@ -48,7 +53,11 @@
 }
 
 .nav-btn {
-
+	text-decoration: none;
+	font-family: RobotoFlex;
+	font-weight: 400;
+	letter-spacing: .25rem;
+	color: var(--yosemite-moss);
 }
 
 .nav-btn:hover {
